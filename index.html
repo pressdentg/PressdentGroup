@@ -891,6 +891,43 @@
       height: 19px;
     }
 
+    .qr-code-wrap {
+      position: relative;
+      width: 160px;
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .qr-code-wrap img {
+      display: block;
+    }
+
+    .whatsapp-qr-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: #bf913d;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, .28);
+      color: #fff;
+      transform: translate(-50%, -50%);
+    }
+
+    .whatsapp-qr-logo svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2.4;
+    }
+
     .contact-row:hover {
       color: #8d672e;
     }
@@ -906,6 +943,15 @@
       .contact-row .contact-icon {
         width: 34px;
         height: 34px;
+      }
+
+      .qr-code-wrap {
+        width: 116px;
+      }
+
+      .whatsapp-qr-logo {
+        width: 24px;
+        height: 24px;
       }
     }
 
@@ -1009,7 +1055,12 @@
     <!-- Sección derecha: código QR para WhatsApp -->
     <div class="right">
       <div class="qr-box">
+        <div class="qr-code-wrap">
         <img id="qr-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeoAAAHqAQAAAADjFjCXAAAEaklEQVR4nO2dTYrrOhCFTz0bMpThLqCXouzs0Tuzl5IFXLCHF2zqDqpKUtKThxxed8ipQUhsfTiB4kj1I0UUJ2z55wwNECdOnPj/hm/idt1EsIiIXHGI3bjiiGvbCGAbEcPHn/Dlib8iDtV1UFVVRV4HBdIO5BXQGYCq7gAwqH2ckyqyqho2v/RvJ/69uCsXAOTbCP2cBpVr2iFXADqHJ7qZCD7t6cTfDR/bD+mPAAAE6bcgzwd0mVYFtnEXJAWwjfsTn078PXGbYQEMNnPCZtO0fxlS7prqZc6wxHvNtM7TJ9sEXa6HIK8HdLkOO7D92oH0R3SZ1hhnqveEpxN/Txyqa7zN66D/5cWNWke800ZXLgAuXzhElwmCZRqg5ZqNWD52tHnll/7txL8XF5ERcgWgnx9q6RPV9RCRCbBsyvKxAzmuMV9H/IRZRi7rXjJ3u6XqPHMX+bomh2dJO0YTxLvNA9QVnpHLuqNdviVVH1f8D2m3G/Q64n3m4pZUTcPKNdO/uQie+6SXJewdvY54l5nXlYqYz6EmaRrzarqbhOekbvQ64l1mDgcM4UjwbIq9mP7ZlLqX2qyqzsycEO82l7lalgBQV2536zp/Z4M5wxI/g28iWKZDmv4SvV3UbgAueCIi4jFE3PgBX574K+IROazw0qpJWoqgwYaseAwu2OlE/BS+Xdy5ZgBYZHQ3K/onVwA2Lt8uMQk/6enE3xBv67B1NVdSJXU11zTZ5Yh6qXXEe3GbTYF2NbdF390yHaIzBpV/bxfvdMJ2US+VffuXJ/6KeMmDACjpk5q5gxfDvFRWG4o9r/zSv534d+ERFmCImkPJA/u1NmncXGM0QbzfQsOqpHlFArXmX1N6eS19ANQ64t3WTKmua+FSWq41iby4xiwx8RP2uF4zlyrOVbZR2IvWcfQ64t3mQmYF/eJ/SdsdPDk29Hj1NTFLTPyUNRvAcizpYiFXixHhk04A7K8jfsIiho1QtbQ2PbhZBLJtfzG9jnifhXKVJpNmZ2zbafx42ATXdcT7rS33F5eqRf7ZRpV8XamXUeuI91vNg6A6lzd03vWtz6m04JW1Hr2OeJfVGbaondZA1oNWlERKOBz3iBE/YV/qsGu8zFXXVqD23EXmmFpHvNea2kSJYesyL1Iqe+zqsbtc1xE/ZTWGqJtymg2IPmSPvErzjlpH/ATuh0i0mxJx+LmI2XqJY1P2IheVa5xz9xO+PPEXxJtOJ7T9dXVAnEJxf4MVMeInTBtbI1/ie1+HZuqtH5sGAXod8S5rz69rgoY2uKh7xGp/HeuwxE9YewZ7PVinRKm1IvbQc0yvI95v7bnEZbdEjsK/39Cv/XU8cYJ4v33xOiu3lr2HoXrwYpgWx6TWEe+0u5P/cYhiEyDfRkieAUEC1E6ITb8F+SYA0gpZpvX804m/J36/rrsrwTYNTajnPJU9itQ64mfwQ/zoHByinx+7a539hdh0SJxLrCV9PKh+Tk96OvH3w4X/1EmcOPE3wP8C1V/x933MvHAAAAAASUVORK5CYII=" alt="Código QR" />
+          <span class="whatsapp-qr-logo" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.3 8.3 0 0 1-12.25 7.3L4 20l1-4a8.3 8.3 0 1 1 15.5-4.2Z" /><path d="M9.1 8.2c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.5.6c.5 1 1.3 1.8 2.4 2.3l.6-.6c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.5v.5c0 .3-.1.5-.4.7-.6.4-1.4.5-2.1.3-2.7-.8-4.9-3-5.7-5.7-.2-.7-.1-1.5.3-2.1Z" /></svg>
+          </span>
+        </div>
         <div class="qr-label">Cotizar por WhatsApp</div>
       </div> 
       <div class="note">
