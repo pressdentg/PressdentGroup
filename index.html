@@ -12,7 +12,7 @@
       --azul: #0f2f4d;
       --azul-claro: #1d5f7a;
       --gris: #5f6b7a;
-      --fondo: #f4f7fb;
+      --fondo: #000000;
     }
 
     /* Estilo global del cuerpo de la página */
@@ -203,6 +203,32 @@
       text-align: center;
     }
 
+    /* Mejoras de interacción y legibilidad */
+    .info a {
+      color: inherit;
+      text-decoration: none;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    .info a:hover {
+      color: var(--azul-claro);
+      text-decoration: underline;
+    }
+
+    .socials a:focus-visible,
+    .info a:focus-visible {
+      outline: 3px solid #1d5f7a;
+      outline-offset: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     /* Ajustes responsivos para pantallas pequeñas */
     @media (max-width: 700px) {
       .card {
@@ -220,6 +246,724 @@
       .left {
         order: 2;
       }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+      .socials a {
+        width: 48px;
+        height: 48px;
+      }
+
+      .qr-box img {
+        width: min(170px, 58vw);
+        height: auto;
+        aspect-ratio: 1;
+      }
+    }
+
+    .card {
+      width: min(100%, 610px);
+      max-width: 610px;
+      min-height: 950px;
+      display: block;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 78% 16%, rgba(210, 210, 204, .2), transparent 20%),
+        linear-gradient(120deg, rgba(255,255,255,.97), rgba(241,241,237,.88)),
+        #fff;
+      box-shadow: 0 16px 36px rgba(8, 33, 57, .2);
+    }
+
+    .card::before {
+      z-index: 0;
+      background: none;
+      box-shadow: none;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 260px;
+      height: 260px;
+      top: 195px;
+      right: -108px;
+      border: 36px solid rgba(15, 47, 77, .055);
+      border-radius: 50%;
+      transform: rotate(-35deg);
+    }
+
+    .left,
+    .right {
+      box-sizing: border-box;
+      z-index: 2;
+    }
+
+    .left {
+      min-height: 680px;
+      padding: 54px 62px 190px;
+      background: transparent;
+      justify-content: flex-start;
+    }
+
+    .brand {
+      width: 112px;
+      height: 112px;
+      margin: 0 0 30px;
+      padding: 7px;
+      border: 4px solid #bf913d;
+      box-shadow: 0 10px 20px rgba(15, 47, 77, .16);
+    }
+
+    h1 {
+      margin: 0;
+      color: #0f2f4d;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 8vw, 56px);
+      font-weight: 600;
+      letter-spacing: .08em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    h1::after {
+      content: "GROUP";
+      display: block;
+      margin-top: 8px;
+      color: #bf913d;
+      font-size: .78em;
+      font-weight: 500;
+      letter-spacing: .22em;
+    }
+
+    h2 {
+      max-width: 300px;
+      margin: 56px 0 42px;
+      color: #172b40;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.28;
+    }
+
+    h2::before {
+      content: "";
+      display: block;
+      width: 54px;
+      height: 3px;
+      margin-bottom: 28px;
+      background: #bf913d;
+    }
+
+    .info {
+      max-width: 430px;
+    }
+
+    .info p {
+      margin: 0;
+      padding: 14px 0 14px 62px;
+      border-bottom: 1px solid rgba(15, 47, 77, .15);
+      color: #172b40;
+      font-size: 19px;
+      line-height: 1.35;
+      position: relative;
+    }
+
+    .info p::first-letter {
+      color: #0f2f4d;
+    }
+
+    .info .address {
+      padding-left: 62px;
+      border-bottom: 0;
+    }
+
+    .socials {
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .socials a {
+      width: 58px;
+      height: 58px;
+      border: 2px solid #bf913d;
+      box-shadow: none;
+    }
+
+    .socials a:hover {
+      background: #f5ead5;
+      transform: translateY(-3px);
+    }
+
+    .right {
+      min-height: 300px;
+      margin-top: -116px;
+      padding: 134px 58px 46px;
+      background: #0f2f4d;
+      border-radius: 62% 62% 0 0 / 92px 92px 0 0;
+      display: block;
+      color: white;
+    }
+
+    .qr-box {
+      display: grid;
+      grid-template-columns: 1fr 176px;
+      align-items: center;
+      gap: 28px;
+      text-align: left;
+    }
+
+    .qr-box img {
+      grid-column: 2;
+      grid-row: 1;
+      width: 158px;
+      height: 158px;
+      padding: 8px;
+      border: 3px solid #bf913d;
+      border-radius: 14px;
+    }
+
+    .qr-label {
+      grid-column: 1;
+      grid-row: 1;
+      margin: 0;
+      color: white;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .qr-label::before {
+      content: "▣";
+      display: block;
+      margin-bottom: 10px;
+      color: #d7ad59;
+      font-size: 38px;
+      line-height: 1;
+    }
+
+    .note {
+      margin-top: 30px;
+      color: #d7ad59;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        min-height: 0;
+        border-radius: 24px;
+      }
+
+      .left {
+        min-height: 0;
+        padding: 38px 30px 165px;
+      }
+
+      .brand {
+        width: 92px;
+        height: 92px;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      h2 {
+        margin: 42px 0 28px;
+        font-size: 19px;
+      }
+
+      .info p {
+        padding: 12px 0 12px 0;
+        font-size: 16px;
+      }
+
+      .info .address {
+        padding-left: 0;
+      }
+
+      .right {
+        margin-top: -95px;
+        min-height: 0;
+        padding: 108px 28px 34px;
+        border-radius: 56% 56% 0 0 / 64px 64px 0 0;
+      }
+
+      .qr-box {
+        grid-template-columns: 1fr 132px;
+        gap: 14px;
+      }
+
+      .qr-box img {
+        width: 116px;
+        height: 116px;
+      }
+
+      .qr-label {
+        font-size: 16px;
+      }
+    }
+
+    /* Ajuste final: composición centrada con tarjeta de cotización */
+    .card {
+      min-height: 1120px;
+      border: 2px solid rgba(191, 145, 61, .72);
+      background:
+        radial-gradient(circle at 100% 18%, rgba(210, 210, 204, .18), transparent 27%),
+        radial-gradient(circle at 0% 70%, rgba(220, 220, 214, .16), transparent 22%),
+        linear-gradient(120deg, #fff, #f7f7f4 62%, #fff);
+    }
+
+    .card::after {
+      top: 175px;
+      right: -145px;
+      width: 300px;
+      height: 300px;
+      border-color: rgba(191, 145, 61, .055);
+    }
+
+    .left {
+      min-height: 735px;
+      align-items: center;
+      padding: 38px 58px 74px;
+      text-align: center;
+    }
+
+    .brand {
+      width: 130px;
+      height: 130px;
+      margin-bottom: 30px;
+      border-width: 2px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7.2vw, 58px);
+      letter-spacing: .13em;
+    }
+
+    h1::after {
+      margin-top: 12px;
+      font-size: .5em;
+      letter-spacing: .5em;
+    }
+
+    h2 {
+      max-width: 380px;
+      margin: 35px 0 34px;
+      color: #6d4b20;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.28;
+    }
+
+    h2::before,
+    h2::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 2px;
+      margin: 0 auto 22px;
+      background: #bf913d;
+    }
+
+    h2::after {
+      margin: 22px auto 0;
+    }
+
+    .info {
+      width: min(100%, 410px);
+      text-align: left;
+    }
+
+    .info p {
+      padding: 13px 0 13px 52px;
+      font-size: 18px;
+    }
+
+    .info p::before {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 50%;
+      background: #172b40;
+      color: #fff;
+      transform: translateY(-50%);
+      font-size: 16px;
+    }
+
+    .info p:nth-child(1)::before { content: "☎"; }
+    .info p:nth-child(2)::before { content: "✉"; }
+    .info p:nth-child(3)::before {
+      content: "";
+      border-radius: 50% 50% 50% 0;
+      background:
+        radial-gradient(circle at 50% 50%, #fff 0 4px, transparent 5px),
+        #172b40;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+
+    .info .address {
+      padding-left: 62px;
+    }
+
+    .socials {
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .socials::after {
+      content: "Síguenos y conoce nuestro trabajo";
+      flex-basis: 100%;
+      margin-top: 4px;
+      color: #786344;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .right {
+      min-height: 0;
+      margin: 0;
+      padding: 0 52px 0;
+      background: transparent;
+      border-radius: 0;
+      color: #172b40;
+    }
+
+    .qr-box {
+      grid-template-columns: 166px 1fr;
+      gap: 25px;
+      padding: 18px 22px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: 0 12px 28px rgba(15, 47, 77, .16);
+      text-align: left;
+    }
+
+    .qr-box img {
+      grid-column: 1;
+      width: 142px;
+      height: 142px;
+      padding: 7px;
+      border-width: 2px;
+    }
+
+    .qr-label {
+      grid-column: 2;
+      color: #172b40;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 29px;
+      line-height: 1.05;
+    }
+
+    .qr-label::before {
+      content: "Escanea para";
+      margin-bottom: 8px;
+      color: #9b7941;
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .note {
+      margin: 34px -52px 0;
+      padding: 44px 24px 30px;
+      border-top: 5px solid #bf913d;
+      border-radius: 0 0 31px 31px;
+      background: linear-gradient(135deg, #172b40, #292929);
+      color: #f5e6bf;
+      font-size: 13px;
+      letter-spacing: .35em;
+    }
+
+    .note::after {
+      content: "Excelencia en cada detalle, compromiso en cada sonrisa.";
+      display: block;
+      margin-top: 24px;
+      color: white;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .note::before {
+      content: none;
+    }
+
+    .note::after {
+      content: none;
+    }
+
+    .note {
+      display: grid;
+      gap: 18px;
+      justify-items: center;
+    }
+
+    .footer-values {
+      color: #f5e6bf;
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+    }
+
+    .footer-tooth {
+      width: min(100%, 330px);
+      color: #d7ad59;
+      background: linear-gradient(to right, transparent 0 5%, #bf913d 5% 40%, transparent 40% 60%, #bf913d 60% 95%, transparent 95%) center / 100% 2px no-repeat;
+      font-family: "Segoe UI Emoji", sans-serif;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .footer-copy {
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      font-style: italic;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    /* Una columna fija para los iconos evita desalineaciones al ajustar el ancho. */
+    .info p {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      column-gap: 18px;
+      align-items: center;
+      padding-left: 0 !important;
+    }
+
+    .info p::before {
+      display: none;
+    }
+
+    .info p > a {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .info p > .address-text {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .info p:nth-child(3)::before {
+      position: static;
+      transform: rotate(-45deg);
+    }
+
+    .info p::before {
+      display: none;
+    }
+
+    .contact-icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      grid-column: 1;
+      grid-row: 1;
+      place-items: center;
+      box-sizing: border-box;
+      border: 2px solid #bf913d;
+      border-radius: 50%;
+      background: #172b40;
+      color: #fff;
+    }
+
+    .info,
+    .info a,
+    .address-text {
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    /* Composición centrada de la tarjeta */
+    .left {
+      text-align: center;
+    }
+
+    h1::after {
+      width: min(100%, 390px);
+      margin: 14px auto 0;
+      padding: 0 16px;
+      background:
+        linear-gradient(#bf913d, #bf913d) left center / calc(50% - 53px) 1px no-repeat,
+        linear-gradient(#bf913d, #bf913d) right center / calc(50% - 53px) 1px no-repeat;
+      box-sizing: border-box;
+      color: #a97a32;
+      font-size: .5em;
+      letter-spacing: .42em;
+    }
+
+    .info {
+      margin-right: auto;
+      margin-left: auto;
+      text-align: left;
+    }
+
+    .info p {
+      min-height: 36px;
+    }
+
+    .contact-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+    }
+
+    .info p > .contact-copy {
+      display: block;
+      min-width: 0;
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    /* Bloque de contacto reconstruido: tres filas con la misma rejilla. */
+    .contact-list {
+      display: grid;
+      width: min(100%, 410px);
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      min-height: 62px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(15, 47, 77, .15);
+      color: #172b40;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+
+    .contact-row:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-row .contact-icon {
+      width: 38px;
+      height: 38px;
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    .contact-row .contact-icon svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .contact-row:hover {
+      color: #8d672e;
+    }
+
+    @media (max-width: 600px) {
+      .contact-row {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 14px;
+        min-height: 56px;
+        font-size: 16px;
+      }
+
+      .contact-row .contact-icon {
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        min-height: 0;
+      }
+
+      .left {
+        min-height: 0;
+        padding: 34px 28px 50px;
+      }
+
+      .brand {
+        width: 108px;
+        height: 108px;
+      }
+
+      h1 {
+        font-size: 35px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .info p {
+        padding-left: 46px;
+        font-size: 16px;
+      }
+
+      .info .address {
+        padding-left: 46px;
+      }
+
+      .right {
+        padding: 0 20px;
+      }
+
+      .qr-box {
+        grid-template-columns: 112px 1fr;
+        gap: 16px;
+        padding: 14px;
+      }
+
+      .qr-box img {
+        width: 96px;
+        height: 96px;
+      }
+
+      .qr-label {
+        font-size: 22px;
+      }
+
+      .note {
+        margin: 26px -20px 0;
+        border-radius: 0 0 21px 21px;
+      }
     }
   </style>
 </head>
@@ -231,12 +975,21 @@
         <div class="brand">
         <img src="data:image/jpeg;base64,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" alt="Logo Pressdent Group" />
       </div>
-      <h1>Pressdent Group</h1>
-      <h2>Construimos Sonrisas , Transformamos Vidas </h2>
-      <div class="info">
-        <p>📞 +57 300 8936688</p>
-        <p>✉️ pressdentlab@gmail.com</p>
-        <p class="address">🌐 Bocagrande Av. San Martín #9-145 , Edif. Nautilus Trade Center  Ofi. 402.</p>
+      <h1>Pressdent</h1>
+      <h2>Construimos sonrisas, transformamos vidas</h2>
+      <div class="contact-list">
+        <a class="contact-row" href="tel:+573008936688">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8.01 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z" /></svg></span>
+          <span>+57 300 893 6688</span>
+        </a>
+        <a class="contact-row" href="mailto:pressdentlab@gmail.com">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg></span>
+          <span>pressdentlab@gmail.com</span>
+        </a>
+        <div class="contact-row">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg></span>
+          <span>Bocagrande, Av. San Martín #9-145, Edif. Nautilus Trade Center, Ofi. 402.</span>
+        </div>
       </div>
 
       <!-- Enlaces a redes sociales con iconos -->
@@ -257,9 +1010,13 @@
     <div class="right">
       <div class="qr-box">
         <img id="qr-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeoAAAHqAQAAAADjFjCXAAAEaklEQVR4nO2dTYrrOhCFTz0bMpThLqCXouzs0Tuzl5IFXLCHF2zqDqpKUtKThxxed8ipQUhsfTiB4kj1I0UUJ2z55wwNECdOnPj/hm/idt1EsIiIXHGI3bjiiGvbCGAbEcPHn/Dlib8iDtV1UFVVRV4HBdIO5BXQGYCq7gAwqH2ckyqyqho2v/RvJ/69uCsXAOTbCP2cBpVr2iFXADqHJ7qZCD7t6cTfDR/bD+mPAAAE6bcgzwd0mVYFtnEXJAWwjfsTn078PXGbYQEMNnPCZtO0fxlS7prqZc6wxHvNtM7TJ9sEXa6HIK8HdLkOO7D92oH0R3SZ1hhnqveEpxN/Txyqa7zN66D/5cWNWke800ZXLgAuXzhElwmCZRqg5ZqNWD52tHnll/7txL8XF5ERcgWgnx9q6RPV9RCRCbBsyvKxAzmuMV9H/IRZRi7rXjJ3u6XqPHMX+bomh2dJO0YTxLvNA9QVnpHLuqNdviVVH1f8D2m3G/Q64n3m4pZUTcPKNdO/uQie+6SXJewdvY54l5nXlYqYz6EmaRrzarqbhOekbvQ64l1mDgcM4UjwbIq9mP7ZlLqX2qyqzsycEO82l7lalgBQV2536zp/Z4M5wxI/g28iWKZDmv4SvV3UbgAueCIi4jFE3PgBX574K+IROazw0qpJWoqgwYaseAwu2OlE/BS+Xdy5ZgBYZHQ3K/onVwA2Lt8uMQk/6enE3xBv67B1NVdSJXU11zTZ5Yh6qXXEe3GbTYF2NbdF390yHaIzBpV/bxfvdMJ2US+VffuXJ/6KeMmDACjpk5q5gxfDvFRWG4o9r/zSv534d+ERFmCImkPJA/u1NmncXGM0QbzfQsOqpHlFArXmX1N6eS19ANQ64t3WTKmua+FSWq41iby4xiwx8RP2uF4zlyrOVbZR2IvWcfQ64t3mQmYF/eJ/SdsdPDk29Hj1NTFLTPyUNRvAcizpYiFXixHhk04A7K8jfsIiho1QtbQ2PbhZBLJtfzG9jnifhXKVJpNmZ2zbafx42ATXdcT7rS33F5eqRf7ZRpV8XamXUeuI91vNg6A6lzd03vWtz6m04JW1Hr2OeJfVGbaondZA1oNWlERKOBz3iBE/YV/qsGu8zFXXVqD23EXmmFpHvNea2kSJYesyL1Iqe+zqsbtc1xE/ZTWGqJtymg2IPmSPvErzjlpH/ATuh0i0mxJx+LmI2XqJY1P2IheVa5xz9xO+PPEXxJtOJ7T9dXVAnEJxf4MVMeInTBtbI1/ie1+HZuqtH5sGAXod8S5rz69rgoY2uKh7xGp/HeuwxE9YewZ7PVinRKm1IvbQc0yvI95v7bnEZbdEjsK/39Cv/XU8cYJ4v33xOiu3lr2HoXrwYpgWx6TWEe+0u5P/cYhiEyDfRkieAUEC1E6ITb8F+SYA0gpZpvX804m/J36/rrsrwTYNTajnPJU9itQ64mfwQ/zoHByinx+7a539hdh0SJxLrCV9PKh+Tk96OvH3w4X/1EmcOPE3wP8C1V/x933MvHAAAAAASUVORK5CYII=" alt="Código QR" />
-        <div class="qr-label">Escanea para abrir WhatsApp</div>
+        <div class="qr-label">Cotizar por WhatsApp</div>
       </div> 
-      <div class="note">Pressdent Group</div>
+      <div class="note">
+        <span class="footer-values">Calidad · Precisión · Confianza</span>
+        <span class="footer-tooth" aria-hidden="true">🦷</span>
+        <span class="footer-copy">Excelencia en cada detalle, compromiso en cada sonrisa.</span>
+      </div>
        
     </div>
   </div>
