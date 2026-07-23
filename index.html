@@ -44,13 +44,7 @@
     background:#fafafa;
     border-radius:24px;
 
-    /* Borde dorado */
-    border:3px solid #c8a24c;
-
-    /* Doble borde elegante */
-    outline:1px solid rgba(255,215,120,.45);
-    outline-offset:8px;
-
+    
     /* Sombra premium */
     box-shadow:
         0 0 0 1px rgba(255,215,120,.25),
@@ -87,7 +81,7 @@
       width: 110px;
       height: 110px;
       border-radius: 50%;
-      border: 2px solid #e0cdab;
+      border: 2px solid #fafafa;
       margin: 0 auto 20px;
       display: flex;
       justify-content: center;
@@ -124,7 +118,7 @@
       font-style: italic;
       font-size: 1.1rem;
       letter-spacing: 6px;
-      color: var(--dorado-texto);
+      color: #FF8000;
       margin-bottom: 12px;
       display: flex;
       align-items: center;
@@ -137,13 +131,13 @@
       display: block;
       width: 35px;
       height: 1px;
-      background: var(--dorado);
+      background: #FF8000;
     }
 
     .divider-small {
       width: 25px;
       height: 1px;
-      background: var(--dorado);
+      background: #FF8000;
       margin: 10px auto;
     }
 
@@ -151,7 +145,7 @@
       font-family: 'Georgia', serif;
       font-style: italic;
       font-size: 1.05rem;
-      color: var(--dorado-texto);
+      color: #63666a;
       line-height: 1.4;
       margin: 12px 0 25px;
     }
@@ -191,12 +185,12 @@
     width:50px;
     height:50px;
     border-radius:50%;
-    background:#1f2f49;      /* Azul oscuro */
-    border:2px solid #d4af37; /* Dorado */
+    background:#f8f5f5;      /* blanco hueso */
+    border: 1px solid #e5e5e5;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#ffffff;           /* Icono blanco */
+    color:#555555;           /* gris */
     font-size:20px;
     flex-shrink:0;
     transition:.3s;
@@ -227,7 +221,7 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      border: 1px solid var(--dorado);
+      border: 1px solid #e5e5e5;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -248,7 +242,7 @@
     .social-tag {
       font-size: 0.62rem;
       letter-spacing: 2px;
-      color: var(--dorado-texto);
+      color: #63666a;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -258,7 +252,7 @@
       background: var(--gris-oscuro);
       color: #ffffff;
       padding: 22px 20px;
-      border-top: 2px solid var(--dorado);
+      
     }
 
     .features {
@@ -282,7 +276,7 @@
       content: "";
       width: 70px;
       height: 1px;
-      background: var(--dorado);
+      background: #FF8000;
       opacity: 0.6;
     }
 
@@ -298,30 +292,7 @@
       color: #e0e0e0;
       font-weight: 400;
     }
-    .card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:24px;
-    padding:2px;
-
-    background:linear-gradient(
-        135deg,
-        #f8e7a2,
-        #d4af37,
-        #b8860b,
-        #f8e7a2
-    );
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite:xor;
-            mask-composite:exclude;
-
-    pointer-events:none;
-}
+   
   </style>
 </head>
 <body>
